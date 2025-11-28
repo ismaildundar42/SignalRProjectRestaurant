@@ -1,0 +1,56 @@
+﻿@model List<SignalRFrontend.Dtos.CategoryDtos.ResultCategoryDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Kategori İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Kategori Listesi</div>
+					</div>
+					<div class="card-body">
+
+						<a href="/AdminCategory/CreateCategory/" class="btn btn-outline-primary">Kategori Ekle</a>
+
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Ad</th>
+									<th scope="col">Durum</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach(var x in Model){
+									<tr>
+										<td>@x.CategoryId</td>
+										<td>@x.CategoryName</td>
+										@if(x.CategoryStatus==true)
+										{
+											<td>Aktif</td>
+										}
+										@if (x.CategoryStatus == false)
+										{
+											<td>Pasif</td>
+										}
+										<td><a href="/AdminCategory/DeleteCategory/@x.CategoryId" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/AdminCategory/EditCategory/@x.CategoryId" class="btn btn-outline-warning">Güncelle</a></td>
+								</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

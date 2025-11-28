@@ -1,0 +1,54 @@
+﻿@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Anasayfa Hakkımızda İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Hakkımızda Listesi</div>
+					</div>
+					<div class="card-body">
+
+						<a href="/AdminAbout/CreateAbout/" class="btn btn-outline-primary">Hakkımda Ekle</a>
+
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">İmage</th>
+									<th scope="col">Title</th>
+									<th scope="col">Açıklama</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var x in Model)
+								{
+									<tr>
+										<td>@x.AboutId</td>
+										<td>@x.ImageUrl</td>
+										<td>@x.Title</td>
+										<td>@x.Description.Substring(0,30)...</td>
+										<td><a href="/AdminAbout/DeleteAbout/@x.AboutId" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/AdminAbout/EditAbout/@x.AboutId" class="btn btn-outline-warning">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+

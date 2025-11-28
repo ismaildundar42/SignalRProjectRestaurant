@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_LayoutHeaderVC")
+
+<body>
+	<div class="wrapper">
+		
+		@await Component.InvokeAsync("_LayoutNavbarVC")
+
+		
+		@await Component.InvokeAsync("_LayoutSidebarVC")
+
+		<div class="main-panel">
+			
+			@RenderBody()
+
+			@await Component.InvokeAsync("_LayoutFooterVC")
+		</div>
+	</div>
+
+
+
+	@await Component.InvokeAsync("_LayoutScriptVC")
+
+	@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
+
+		@RenderBody()
+
+
