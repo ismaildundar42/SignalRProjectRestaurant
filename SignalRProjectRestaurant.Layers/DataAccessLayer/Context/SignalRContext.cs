@@ -27,5 +27,6 @@ namespace DataAccessLayer.Context
         public DbSet<OrderDetail> tbl_orderDetail { get; set; }
         public DbSet<MoneyCase> tbl_moneyCase { get; set; }
         public DbSet<MenuTable> tbl_menuTable { get; set; }
+        public DbSet<Slider> tbl_slider { get; set; }
     }
 }

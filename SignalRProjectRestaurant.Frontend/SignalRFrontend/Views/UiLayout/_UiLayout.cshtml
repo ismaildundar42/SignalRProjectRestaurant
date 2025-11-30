@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+@await Component.InvokeAsync("_UiLayoutHeadVC")
+<body>
+
+    @RenderBody()
+
+    @await Component.InvokeAsync("_UiLayoutFooterVC")
+    @await Component.InvokeAsync("_UiLayoutScriptsVC")
+</body>
+</html>
