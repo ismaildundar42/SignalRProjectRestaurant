@@ -2,6 +2,7 @@
 @{
     Layout = null;
     int count = 0;
+    decimal basketTotalPrice = 0;
 }
 
 <!DOCTYPE html>
@@ -45,11 +46,12 @@
                     </thead>
                     @foreach(var x in Model)
                     {
+                        basketTotalPrice = Model.Sum(x => x.Price);
                         count++;
                         <tbody class="align-middle">
                             <tr>
                             <td class="align-middle">@count</td>
-                            <td class="align-middle">@x.ProductId</td>
+                            <td class="align-middle">@x.ProductName</td>
                             <td class="align-middle">@x.Price</td>
                             <td class="align-middle">@x.Count</td>
                             <td class="align-middle">@x.TotalPrice</td>
@@ -64,6 +66,29 @@
                     }
                 </table>
             </div>
+            <div class="col-lg-4">
+                <form>
+                    <div class="input-group">
+                        <input type="text" id="couponcode" class="form-control p-4" placeholder="Kupon Kodunuz" />
+                        <button type="button" class="btn btn-warning" id="btncouponcode" style="height: 48px; padding-top: 14px;margin-left: 10px;">Kuponu Uygula</button>
+                    </div>
+                </form>
+                <br />
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-warning pr-3">Sepet Özeti</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div id="container" class="border-bottom pb-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Toplam Tutar</h6>
+                            <h6><span id="totalprice">@basketTotalPrice</span>₺</h6>
+                        </div>
+                    </div>
+                    <br />
+                    <button id="checked" class="btn btn-block btn-warning font-weight-bold my-3">
+                        Siparişi Tamamla
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 

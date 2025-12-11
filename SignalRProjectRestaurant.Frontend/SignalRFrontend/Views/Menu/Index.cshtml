@@ -130,9 +130,10 @@
             $.ajax({
                 type:'post',
                 data:{item:id},
+                url:'/Menu/AddBasket/'+id,
                 contentType:'json',
                 success:function(){
-                swal("Seçilen Urün ID : "+id, "Seçiminizi Yaptınız!", "success");
+                swal("Seçilen Urün ID : "+id, "Ürün Sepete Eklendi!", "success");
                         }
             });
         }

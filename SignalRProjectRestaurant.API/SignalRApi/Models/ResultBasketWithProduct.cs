@@ -1,6 +1,8 @@
-﻿namespace SignalRFrontend.Dtos.BasketDtos
+﻿using EntityLayer.Entities;
+
+namespace SignalRApi.Models
 {
-    public class ResultBasketDto
+    public class ResultBasketWithProduct
     {
         public int BasketId { get; set; }
         public decimal Price { get; set; }

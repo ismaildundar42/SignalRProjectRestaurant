@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRFrontend.Dtos.BasketDtos;
+using System.Text;
 
 namespace SignalRFrontend.Controllers
 {
@@ -16,7 +17,7 @@ namespace SignalRFrontend.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7014/api/Basket?id=16");
+            var responseMessage = await client.GetAsync("https://localhost:7014/api/Basket/GetBasketWithProductName?id=16");
             if(responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -25,5 +26,6 @@ namespace SignalRFrontend.Controllers
             }
             return View();
         }
+        
     }
 }
