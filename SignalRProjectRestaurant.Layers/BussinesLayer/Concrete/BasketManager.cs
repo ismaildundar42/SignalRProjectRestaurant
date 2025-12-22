@@ -25,7 +25,7 @@ namespace BussinesLayer.Concrete
 
         public void TDelete(Basket entity)
         {
-            throw new NotImplementedException();
+            _basketDal.Delete(entity);
         }
 
         public List<Basket> TGetBasketByMenuTableNumber(int id)
@@ -35,7 +35,7 @@ namespace BussinesLayer.Concrete
 
         public Basket TGetbyId(int id)
         {
-            throw new NotImplementedException();
+            return _basketDal.GetbyId(id);
         }
 
         public List<Basket> TGetListAll()
