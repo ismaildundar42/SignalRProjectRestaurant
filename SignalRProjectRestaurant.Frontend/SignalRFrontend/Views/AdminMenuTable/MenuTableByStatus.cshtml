@@ -2,27 +2,47 @@
 @{
 	ViewData["Title"] = "MenuTableByStatus";
 	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
-	string colour = "";
 }
 
-<div class="content">
-    <div class="container-fluid">
+@section Scripts {
+	<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
-		<h4 class="page-title">Anlık Masa Durumları Sayfası</h4>
-		<div class="row">
+	<script type="text/javascript">
+		$(document).ready(() => {
+			// SignalR bağlantısı
+			var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7014/SignalRHub").build();
 
-			@foreach (var x in Model)
-			{
-				@if(@x.Status == false)
-				{
-					colour = "card card-stats card-danger";
-				}
-				@if (@x.Status == true)
-				{
-					colour = "card card-stats card-success";
-				}
-				<div class="col-md-3">
-					<div class="@colour">
+			$("#connStatus").text(connection.state);
+
+			connection.start().then(() => {
+				$("#connStatus").text(connection.state);
+
+				setInterval(() => {
+					connection.invoke("GetMenuTableStatus");
+				}, 1000);
+
+			}).catch((err) => { console.log(err) });
+
+			connection.on("ReceiveMenuTableStatus", (value) => {
+				let color = "";
+				let status = "";
+				console.log(value);
+				let tableHtml = `<div class="row">`;
+				$.each(value, (index, item) => {
+
+					if(item.status==true)
+					{
+						color = "card card-stats card-success";
+						status = "Dolu";
+					}
+					else
+					{
+						color = "card card-stats card-danger";
+						status = "Boş";
+					}
+
+					tableHtml += `<div class="col-md-3">
+					<div class="${color}">
 					<div class="card-body ">
 						<div class="row">
 							<div class="col-5">
@@ -32,25 +52,45 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">@x.Name</p>
-
-									
-										@if (@x.Status == false)
-										{
-											<h4 class="card-title">Boş</h4>
-										}
-										@if (@x.Status == true)
-										{
-											<h4 class="card-title">Dolu</h4>
-										}
+									<p class="card-category">${item.name}</p>
+                                    <h4 class="card-title">${status}</h4>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			}
-		</div>
+			</div>`
+			});
+			tableHtml+=`</div>`
+		$("#statusList").html(tableHtml);
+			});
+
+		});
+	</script>
+
+}
+
+<div class="content">
+    <div class="container-fluid">
+
+		<h4 class="page-title">Anlık Masa Durumları Sayfası</h4>
+		
+
+			@* @foreach (var x in Model)
+			{ *@
+				@* @if(@x.Status == false)
+				{
+					colour = "card card-stats card-danger";
+				}
+				@if (@x.Status == true)
+				{
+					colour = "card card-stats card-success";
+				} *@
+
+
+			<div id="statusList"></div>
+			
+		
 
 
 	</div>
