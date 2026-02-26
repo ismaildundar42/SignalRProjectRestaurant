@@ -1,0 +1,186 @@
+﻿@model RegisterDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium SignalR | Kayıt Ol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            --glass-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            background: var(--primary-gradient);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.3s ease;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+            .header-section h2 {
+                font-weight: 800;
+                color: #1a1a1a;
+                letter-spacing: -1px;
+                margin-bottom: 0.5rem;
+            }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #4a4a4a;
+            margin-left: 4px;
+        }
+
+        .input-group-custom {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 15px 12px 45px;
+            border: 1.5px solid #e1e1e1;
+            background: #f8f9fa;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+            .form-control:focus {
+                background: #fff;
+                border-color: #4158D0;
+                box-shadow: 0 0 0 4px rgba(65, 88, 208, 0.1);
+            }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #adb5bd;
+            z-index: 10;
+            transition: color 0.2s ease;
+        }
+
+        .form-control:focus + .input-icon {
+            color: #4158D0;
+        }
+
+        .btn-premium {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-weight: 700;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+            .btn-premium:hover {
+                background: #000;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            }
+
+        .social-login {
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        /* Responsive düzenleme */
+        @@media (max-width: 576px) {
+            .glass-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <div class="header-section">
+            <h2>Aramıza Katıl</h2>
+            <p class="text-muted small">Modern dünyanın bir parçası olmaya hazır mısın?</p>
+        </div>
+
+        <form method="post">
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label class="form-label">Ad</label>
+                    <div class="input-group-custom">
+                        <i class="fa-regular fa-user input-icon"></i>
+                        <input type="text" class="form-control"  placeholder="Ad" required asp-for="Name" />
+                    </div>
+                </div>
+                <div class="col-6 mb-3">
+                    <label class="form-label">Soyad</label>
+                    <div class="input-group-custom">
+                        <i class="fa-regular fa-user input-icon"></i>
+                        <input type="text" class="form-control"  placeholder="Soyad" required asp-for="Surname"/>
+                    </div>
+                </div>
+            </div>
+
+            <label class="form-label">Kullanıcı Adı</label>
+            <div class="input-group-custom">
+                <i class="fa-solid fa-at input-icon"></i>
+                <input type="text" class="form-control"  placeholder="kullaniciadi" required asp-for="Username"/>
+            </div>
+
+            <label class="form-label">E-posta Adresi</label>
+            <div class="input-group-custom">
+                <i class="fa-regular fa-envelope input-icon"></i>
+                <input type="email" class="form-control"  placeholder="mail@example.com" required asp-for="Mail"/>
+            </div>
+
+            <label class="form-label">Güçlü Şifre</label>
+            <div class="input-group-custom">
+                <i class="fa-solid fa-shield-halved input-icon"></i>
+                <input type="password" class="form-control"  placeholder="••••••••" required asp-for="Password"/>
+            </div>
+
+            <button type="submit" class="btn btn-premium">Hesabımı Oluştur</button>
+
+            <div class="social-login">
+                <p class="small text-muted mb-0">Zaten hesabın var mı? <a href="/Login/Index" class="text-dark fw-bold text-decoration-none">Giriş Yap</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

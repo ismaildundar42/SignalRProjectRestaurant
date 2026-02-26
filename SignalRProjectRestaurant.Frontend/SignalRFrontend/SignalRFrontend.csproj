@@ -11,7 +11,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.17" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SignalRProjectRestaurant.Layers\BussinesLayer\BussinesLayer.csproj" />
+    <ProjectReference Include="..\..\SignalRProjectRestaurant.Layers\DataAccessLayer\DataAccessLayer.csproj" />
+    <ProjectReference Include="..\..\SignalRProjectRestaurant.Layers\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
 </Project>

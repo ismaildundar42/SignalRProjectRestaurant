@@ -1,7 +1,16 @@
+using DataAccessLayer.Context;
+using EntityLayer.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// 1. Önce DbContext'i mutlaka kaydetmelisin (Baðlantý dizesini appsettings.json'dan almalý)
+builder.Services.AddDbContext<SignalRContext>();
+
+// identity yapýlandýrýlmasý
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<SignalRContext>();
 
 //http client tanýmlama
 builder.Services.AddHttpClient();
