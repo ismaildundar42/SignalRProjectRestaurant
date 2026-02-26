@@ -8,5 +8,9 @@ namespace SignalRFrontend.Controllers
         {
             return View();
         }
+        public IActionResult ClientUserCount()
+        {
+            return View();
+        }
     }
 }

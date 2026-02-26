@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @await Component.InvokeAsync("_UiLayoutHeadVC")
+</head>
+
+<body class="sub_page">
+
+    @await Component.InvokeAsync("_MenuNavbarVC")
+
+    <section class="food_section layout_padding">
+        <div class="container">
+            <div class="content">
+                <div class="container-fluid">
+                    <h4 class="page-title">
+                        Anlık İstatistik Sayfası :
+                        <span id="clientCountValue">0</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Component.InvokeAsync("_UiLayoutFooterVC")
+    @await Component.InvokeAsync("_UiLayoutScriptsVC")
+
+    <!-- SignalR Script -->
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("https://localhost:7014/SignalRHub")
+                .withAutomaticReconnect()
+                .build();
+
+            connection.start()
+                .then(() => {
+                    console.log("SignalR Connected ✔");
+                })
+                .catch(err => console.error("SignalR Connection Error:", err));
+
+            connection.on("ReceiveClientCount", function (clientCount) {
+                document.getElementById("clientCountValue").innerText = clientCount;
+            });
+
+        });
+    </script>
+
+</body>
+</html>
