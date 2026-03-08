@@ -1,4 +1,4 @@
-﻿@model List<ResultFeatureDto>
+﻿@model List<ResultSliderDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -15,7 +15,7 @@
 					</div>
 					<div class="card-body">
 
-						<a href="/AdminFeature/CreateFeature/" class="btn btn-outline-primary">Kategori Ekle</a>
+						<a href="/AdminSlider/CreateSlider/" class="btn btn-outline-primary">Öne Çıkan Alan Ekle</a>
 
 						<table class="table mt-3">
 							<thead>
@@ -35,15 +35,15 @@
 								@foreach (var x in Model)
 								{
 									<tr>
-										<td>@x.FeatureId</td>
+										<td>@x.SliderId</td>
 										<td>@x.Title1</td>
 										<td>@x.Description1</td>
 										<td>@x.Title2</td>
 										<td>@x.Description2</td>
 										<td>@x.Title3</td>
 										<td>@x.Description3</td>
-										<td><a href="/AdminFeature/DeleteFeature/@x.FeatureId" class="btn btn-outline-danger">Sil</a></td>
-										<td><a href="/AdminFeature/EditFeature/@x.FeatureId" class="btn btn-outline-warning">Güncelle</a></td>
+										<td><a href="/AdminSlider/DeleteSlider/@x.SliderId" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/AdminSlider/EditSlider/@x.SliderId" class="btn btn-outline-warning">Güncelle</a></td>
 									</tr>
 								}
 							</tbody>

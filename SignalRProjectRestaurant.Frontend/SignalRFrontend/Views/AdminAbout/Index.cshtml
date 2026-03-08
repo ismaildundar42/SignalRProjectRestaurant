@@ -20,7 +20,6 @@
 						<table class="table mt-3">
 							<thead>
 								<tr>
-									<th scope="col">#</th>
 									<th scope="col">İmage</th>
 									<th scope="col">Title</th>
 									<th scope="col">Açıklama</th>
@@ -32,7 +31,6 @@
 								@foreach (var x in Model)
 								{
 									<tr>
-										<td>@x.AboutId</td>
 										<td>@x.ImageUrl</td>
 										<td>@x.Title</td>
 										<td>@x.Description.Substring(0,30)...</td>

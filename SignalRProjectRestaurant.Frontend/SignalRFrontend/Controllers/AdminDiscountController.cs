@@ -81,5 +81,19 @@ namespace SignalRFrontend.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> changeStatusToTrue(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            await client.GetAsync($"https://localhost:7014/api/Discount/changeStatusToTrue/{id}");
+
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> changeStatusToFalse(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            await client.GetAsync($"https://localhost:7014/api/Discount/changeStatusToFalse/{id}");
+
+            return RedirectToAction("Index");
+        }
     }
 }

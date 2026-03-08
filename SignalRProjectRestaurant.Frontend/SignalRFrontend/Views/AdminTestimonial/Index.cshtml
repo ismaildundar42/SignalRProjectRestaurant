@@ -1,7 +1,8 @@
 ﻿@model List<ResultTestimonialDto>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+	int count = 0;
 }
 
 <div class="content">
@@ -30,8 +31,9 @@
 							<tbody>
 								@foreach (var x in Model)
 								{
+									count++;
 									<tr>
-										<td>@x.TestimonialId</td>
+										<th>@count</th>
 										<td>@x.Name</td>
 										@if (x.Status == true)
 										{

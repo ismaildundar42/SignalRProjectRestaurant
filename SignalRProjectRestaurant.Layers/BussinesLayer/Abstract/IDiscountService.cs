@@ -9,5 +9,8 @@ namespace BussinesLayer.Abstract
 {
     public interface IDiscountService : IGenericService<Discount>
     {
+        void TchangeStatusToTrue(int id);
+        void TchangeStatusToFalse(int id);
+        List<Discount> TGetListByStatusTrue();
     }
 }

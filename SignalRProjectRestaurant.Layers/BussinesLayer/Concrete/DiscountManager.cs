@@ -23,6 +23,16 @@ namespace BussinesLayer.Concrete
             _discountDal.Add(entity);
         }
 
+        public void TchangeStatusToFalse(int id)
+        {
+            _discountDal.changeStatusToFalse(id);
+        }
+
+        public void TchangeStatusToTrue(int id)
+        {
+            _discountDal.changeStatusToTrue(id);
+        }
+
         public void TDelete(Discount entity)
         {
             _discountDal.Delete(entity);
@@ -36,6 +46,11 @@ namespace BussinesLayer.Concrete
         public List<Discount> TGetListAll()
         {
             return _discountDal.GetListAll();
+        }
+
+        public List<Discount> TGetListByStatusTrue()
+        {
+            return _discountDal.GetListByStatusTrue();
         }
 
         public void TUpdate(Discount entity)

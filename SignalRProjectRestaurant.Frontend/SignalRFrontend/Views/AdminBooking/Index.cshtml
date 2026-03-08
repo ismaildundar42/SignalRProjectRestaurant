@@ -43,6 +43,8 @@
 			  <th>Rezervasyon Durumu</th>
 			  <th>Sil</th>
 			  <th>Güncelle</th>
+			  <th>Onayla</th>
+			  <th>İptal Et</th>
 			</tr>
 		  </thead>
 		  <tbody>
@@ -51,13 +53,13 @@
 		$.each(value, (index, item) => {
 		  tableHtml += `
 			<tr>
-			  <td>${item.bookingId}</td>
+			  <th>${index+1}</th>
 			  <td>${item.name}</td>
 			  <td>${item.phone}</td>
 			  <td>${item.mail}</td>
 			  <td>${item.personCount}</td>
 			  <td>${item.date}</td>
-			  <td>Rezervasyon Alındı</td>
+			  <td>${item.description}</td>
 			  <td>
 				<a href="/AdminBooking/DeleteBooking/${item.bookingId}"
 				   class="btn btn-outline-danger btn-sm">Sil</a>
@@ -65,6 +67,14 @@
 			  <td>
 				<a href="/AdminBooking/EditBooking/${item.bookingId}"
 				   class="btn btn-outline-warning btn-sm">Güncelle</a>
+			  </td>
+			  <td>
+				<a href="/AdminBooking/BookingStatusApproved/${item.bookingId}"
+				   class="btn btn-outline-info btn-sm">Onayla</a>
+			  </td>
+			  <td>
+				<a href="/AdminBooking/BookingStatusCancelled/${item.bookingId}"
+				   class="btn btn-outline-dark btn-sm">İptal Et</a>
 			  </td>
 			</tr>
 		  `;
@@ -95,7 +105,7 @@
 					</div>
 					<div class="card-body">
 
-						<a href="/AdminBooking/CreateBooking/" class="btn btn-outline-primary">Hakkımda Ekle</a>
+						<a href="/AdminBooking/CreateBooking/" class="btn btn-outline-primary">Rezervasyon Oluştur</a>
 
 						<div id="bookingList"></div>
 

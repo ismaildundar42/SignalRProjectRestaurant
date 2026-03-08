@@ -16,5 +16,7 @@ namespace SignalRFrontend.Dtos.BookingDtos
         public int PersonCount { get; set; }
         [Required(ErrorMessage = "Tarih alanı zorunludur.")]
         public DateTime Date { get; set; }
+        public string Description { get; set; } = "Rezervasyon Alındı";
+
     }
 }

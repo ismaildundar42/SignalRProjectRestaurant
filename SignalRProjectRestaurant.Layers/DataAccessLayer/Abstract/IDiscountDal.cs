@@ -9,5 +9,8 @@ namespace DataAccessLayer.Abstract
 {
     public interface IDiscountDal : IGenericDal<Discount>
     {
+        void changeStatusToTrue(int id);
+        void changeStatusToFalse(int id);
+        List<Discount> GetListByStatusTrue();
     }
 }

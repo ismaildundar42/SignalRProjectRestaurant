@@ -2,6 +2,7 @@
 @{
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+	int count = 0;
 }
 
 <div class="content">
@@ -33,11 +34,11 @@
 							<tbody>
 								@foreach (var x in Model)
 								{
+									count++;
 									<tr>
-										<td>@x.NotificationId</td>
+										<th>@count</th>
 										<td>@x.Description</td>
-										<td>@x.Date</td>
-										@if(@x.Status==true)
+										<td>@x.Date.ToString("dd.MM.yyyy")</td>										@if(@x.Status==true)
 										{
 											<td>Okundu</td>
 										}
