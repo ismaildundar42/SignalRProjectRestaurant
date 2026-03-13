@@ -31,5 +31,6 @@ namespace DataAccessLayer.Context
         public DbSet<Slider> tbl_slider { get; set; }
         public DbSet<Basket> tbl_basket { get; set; }
         public DbSet<Notification> tbl_notification { get; set; }
+        public DbSet<Message> tbl_message { get; set; }
     }
 }

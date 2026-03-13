@@ -3,6 +3,7 @@
     Layout = null;
     int count = 0;
     decimal basketTotalPrice = 0;
+    decimal urunToplamFiyat = 0;
 }
 
 <!DOCTYPE html>
@@ -47,6 +48,7 @@
                     @foreach(var x in Model)
                     {
                         basketTotalPrice = Model.Sum(x => x.Price);
+                        urunToplamFiyat = x.Price * x.Count;
                         count++;
                         <tbody class="align-middle">
                             <tr>
@@ -54,7 +56,7 @@
                             <td class="align-middle">@x.ProductName</td>
                             <td class="align-middle">@x.Price</td>
                             <td class="align-middle">@x.Count</td>
-                            <td class="align-middle">@x.TotalPrice</td>
+                                <td class="align-middle">@urunToplamFiyat</td>
                                 <td class="align-middle btn-delete">
                                     <a href="/Basket/DeleteBasket/@x.BasketId/" class="btn btn-sm btn-danger">
                                         <i class="fa-solid fa-xmark"></i>
