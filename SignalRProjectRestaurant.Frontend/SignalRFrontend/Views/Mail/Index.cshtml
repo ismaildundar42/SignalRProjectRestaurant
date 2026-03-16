@@ -1,0 +1,106 @@
+﻿@model CreateMailDto
+@{
+    ViewData["Title"] = "Mail Gönder";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Mail Sayfası</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <div class="card-title">Mail Gönderme Paneli</div>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label asp-for="ReceiverMailAdress">Alıcı Mail Adresi</label>
+                                <input type="email" class="form-control" asp-for="ReceiverMailAdress" placeholder="ornek@mail.com" />
+                                <span asp-validation-for="ReceiverMailAdress" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Subject">Konu</label>
+                                <input type="text" class="form-control" asp-for="Subject" placeholder="Mail konusu" />
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Body">Mesajınız</label>
+                                <textarea asp-for="Body" id="editor" class="form-control"></textarea>
+                                <span asp-validation-for="Body" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-success">
+                                <i class="la la-paper-plane"></i> Maili Gönder
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .ck-editor__editable_inline {
+        min-height: 300px;
+        max-height: 500px;
+    }
+
+    .ck.ck-editor {
+        width: 100%;
+    }
+
+    .card {
+        border-radius: 12px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    label {
+        font-weight: 600;
+    }
+</style>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: [
+                'heading',
+                '|',
+                'bold', 'italic', 'underline', 'strikethrough',
+                '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor',
+                '|',
+                'bulletedList', 'numberedList',
+                '|',
+                'alignment',
+                '|',
+                'link', 'blockQuote', 'insertTable',
+                '|',
+                'undo', 'redo'
+            ]
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -14,12 +14,20 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.17" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\SignalRProjectRestaurant.Layers\BussinesLayer\BussinesLayer.csproj" />
     <ProjectReference Include="..\..\SignalRProjectRestaurant.Layers\DataAccessLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\..\SignalRProjectRestaurant.Layers\EntityLayer\EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="QRCoder">
+      <HintPath>..\..\..\..\..\Desktop\UdemySignalRProject-master\SignalRWebUI\QRCoder.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
