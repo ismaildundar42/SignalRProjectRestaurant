@@ -66,5 +66,12 @@ namespace DataAccessLayer.EntityFramework
             using var context = new SignalRContext();
             return context.tbl_product.Where(x => x.CategoryId == (context.tbl_category.Where(y => y.CategoryName == "Fırın Ürünleri").Select(z => z.CategoryId).FirstOrDefault())).Average(w=>w.Price);
         }
+
+        public decimal TotalPriceByIcecekCategory()
+        {
+            using var context = new SignalRContext();
+            int id = context.tbl_category.Where(x => x.CategoryName == "İçecekler").Select(y => y.CategoryId).FirstOrDefault();
+            return context.tbl_product.Where(x => x.CategoryId == id).Sum(y => y.Price);
+        }
     }
 }

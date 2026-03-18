@@ -1,4 +1,5 @@
-﻿using BussinesLayer.Abstract;
+﻿using AutoMapper;
+using BussinesLayer.Abstract;
 using DtoLayer.NotificationDto;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +11,12 @@ namespace SignalRApi.Controllers
     public class NotificationController : ControllerBase
     {
         private readonly INotificationService _notificationService;
+        private readonly IMapper _mapper;
 
-        public NotificationController(INotificationService notificationService)
+        public NotificationController(INotificationService notificationService, IMapper mapper)
         {
             _notificationService = notificationService;
+            _mapper = mapper;
         }
 
         // GET: api/notification
@@ -87,16 +90,12 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult CreateNotification(CreateNotificationDto dto)
         {
-            var notification = new Notification
-            {
-                Type = dto.Type,
-                Icon = dto.Icon,
-                Description = dto.Description,
-                Date = DateTime.Now,   // İstersen dto.Date kullanabilirsin
-                Status = false         // 🔴 ZORUNLU FALSE
-            };
+            dto.Status = false;
+            dto.Date = DateTime.Now;
 
-            _notificationService.TAdd(notification);
+            var value = _mapper.Map<Notification>(dto);
+
+            _notificationService.TAdd(value);
             return Ok("Bildirim eklendi");
         }
 

@@ -78,6 +78,11 @@ namespace BussinesLayer.Concrete
             return _productDal.ProductPriceAvgFirin();
         }
 
+        public decimal TTotalPriceByIcecekCategory()
+        {
+            return _productDal.TotalPriceByIcecekCategory();
+        }
+
         public void TUpdate(Product entity)
         {
             _productDal.Update(entity);

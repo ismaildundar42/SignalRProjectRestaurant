@@ -17,5 +17,6 @@ namespace DataAccessLayer.Abstract
         public string ProductNameByMaxPrice();
         public string ProductNameByMinPrice();
         public decimal ProductPriceAvgFirin();
+        public decimal TotalPriceByIcecekCategory();
     }
 }

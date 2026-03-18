@@ -17,6 +17,7 @@ namespace BussinesLayer.Abstract
         public string TProductNameByMaxPrice();
         public string TProductNameByMinPrice();
         public decimal TProductPriceAvgFirin();
+        public decimal TTotalPriceByIcecekCategory();
 
     }
 }

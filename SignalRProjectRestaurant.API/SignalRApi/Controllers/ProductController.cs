@@ -65,6 +65,11 @@ namespace SignalRApi.Controllers
         {
             return Ok(_productService.TProductPriceAvgFirin());
         }
+        [HttpGet("TotalPriceByIcecekCategory")]
+        public IActionResult TotalPriceByIcecekCategory()
+        {
+            return Ok(_productService.TTotalPriceByIcecekCategory());
+        }
 
         [HttpGet("ProductListWithCategory")]
         public IActionResult ProductListWithCategory()
