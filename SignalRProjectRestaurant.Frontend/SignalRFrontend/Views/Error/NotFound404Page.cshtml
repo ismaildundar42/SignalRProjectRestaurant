@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Kayboldun mu?</title>
+    <style>
+        @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+        }
+
+        .error-num {
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .message {
+            margin-top: -20px;
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .sub-message {
+            margin: 20px 0 40px;
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 30px;
+            background: #6366f1;
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn:hover {
+            background: #4f46e5;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Arka plan efektleri */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(15,23,42,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @@keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Küçük ekranlar için düzenleme */
+        @@media (max-width: 600px) {
+            .message { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <div class="container">
+        <h1 class="error-num">404</h1>
+        <p class="message">Aradığın sayfa uzayda kaybolmuş olabilir.</p>
+        <p class="sub-message">Görünüşe göre ulaştığın adres artık mevcut değil ya da hiç var olmadı.</p>
+        <a href="/Default/Index/" class="btn">Güvenli Limana Dön</a>
+    </div>
+
+</body>
+</html>

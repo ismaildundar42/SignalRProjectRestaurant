@@ -21,19 +21,16 @@
                 </h2>
             </div>
 
-            <ul class="filters_menu">
-                <li class="active" data-filter="*">Tüm Ürünler</li>
-                <li data-filter=".burger">Fırın Ürünleri</li>
-                <li data-filter=".pizza">İçecekler</li>
-                <li data-filter=".pasta">Ezmeler</li>
-            </ul>
+            @await Component.InvokeAsync("_MenuCategoryFiterVC")
+
+            
 
             <div class="filters-content">
                 <div class="row grid">
 
                     @foreach (var x in Model)
                     {
-                        <div class="col-sm-6 col-lg-4 all pizza">
+                        <div class="col-sm-6 col-lg-4 all @x.CategoryName">
                             <div class="box">
                                 <div>
                                     <div class="img-box">

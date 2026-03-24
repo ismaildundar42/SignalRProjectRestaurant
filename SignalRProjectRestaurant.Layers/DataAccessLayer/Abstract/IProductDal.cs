@@ -18,5 +18,6 @@ namespace DataAccessLayer.Abstract
         public string ProductNameByMinPrice();
         public decimal ProductPriceAvgFirin();
         public decimal TotalPriceByIcecekCategory();
+        List<Product> GetFirst9Product();
     }
 }

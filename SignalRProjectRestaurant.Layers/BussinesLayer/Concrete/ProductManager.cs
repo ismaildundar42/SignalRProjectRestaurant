@@ -33,6 +33,11 @@ namespace BussinesLayer.Concrete
             return _productDal.GetbyId(id);
         }
 
+        public List<Product> TGetFirst9Product()
+        {
+            return _productDal.GetFirst9Product();
+        }
+
         public List<Product> TGetListAll()
         {
             return _productDal.GetListAll();

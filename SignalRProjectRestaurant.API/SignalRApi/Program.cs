@@ -7,6 +7,8 @@ using SignalRApi.Hubs;
 using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using BussinesLayer.ValidationRules.BookingValidations;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,8 +79,15 @@ builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
 builder.Services.AddScoped<IMessageService, MessageManager>();
 builder.Services.AddScoped<IMessageDal, EfMessageDal>();
 
+builder.Services.AddValidatorsFromAssemblyContaining<CreateBookingValidation>();
+
 builder.Services.AddControllersWithViews()
-    .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+    .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles)
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        // Otomatik model state validation'ı devre dışı bırak (FluentValidation kullanıyoruz)
+        options.SuppressModelStateInvalidFilter = true;
+    });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

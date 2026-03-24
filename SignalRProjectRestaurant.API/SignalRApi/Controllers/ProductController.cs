@@ -70,10 +70,16 @@ namespace SignalRApi.Controllers
         {
             return Ok(_productService.TTotalPriceByIcecekCategory());
         }
+        [HttpGet("GetFirst9Product")]
+        public IActionResult GetFirst9Product()
+        {
+            var value = _productService.TGetFirst9Product();
+            return Ok(value);
+        }
 
         [HttpGet("ProductListWithCategory")]
         public IActionResult ProductListWithCategory()
-        {
+        { 
             var context = new SignalRContext();
             var result = context.tbl_product.Include(x => x.Category).Select(y => new ResultProductWithCategory
             {

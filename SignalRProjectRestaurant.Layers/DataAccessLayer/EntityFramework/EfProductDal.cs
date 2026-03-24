@@ -17,6 +17,13 @@ namespace DataAccessLayer.EntityFramework
         {
         }
 
+        public List<Product> GetFirst9Product()
+        {
+            using var context = new SignalRContext();
+            var values = context.tbl_product.Take(9).ToList();
+            return values;
+        }
+
         public List<Product> GetProductWithCategory()
         {
             var context = new SignalRContext();
