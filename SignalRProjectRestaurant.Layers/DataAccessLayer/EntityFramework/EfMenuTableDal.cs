@@ -16,6 +16,22 @@ namespace DataAccessLayer.EntityFramework
         {
         }
 
+        public void ChangeMenuTableStatusToFalse(int id)
+        {
+            var context = new SignalRContext();
+            var value = context.tbl_menuTable.Where(x=>x.MenuTableId == id).FirstOrDefault();
+            value.Status = false;
+            context.SaveChanges();
+        }
+
+        public void ChangeMenuTableStatusToTrue(int id)
+        {
+            var context = new SignalRContext();
+            var value = context.tbl_menuTable.Where(x => x.MenuTableId == id).FirstOrDefault();
+            value.Status = true;
+            context.SaveChanges();
+        }
+
         public int MenuTableCount()
         {
             using var context = new SignalRContext();

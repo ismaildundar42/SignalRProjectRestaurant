@@ -20,7 +20,6 @@
 						<table class="table mt-3">
 							<thead>
 								<tr>
-									<th scope="col">Konum</th>
 									<th scope="col">Telefon</th>
 									<th scope="col">Açıklama</th>
 									<th scope="col">Sil</th>
@@ -31,7 +30,6 @@
 								@foreach (var x in Model)
 								{
 									<tr>
-										<td>@x.Location</td>
 										<td>@x.Phone</td>
 										<td>@x.FooterDescription</td>
 										<td><a href="/AdminContact/DeleteContact/@x.ContactId" class="btn btn-outline-danger">Sil</a></td>

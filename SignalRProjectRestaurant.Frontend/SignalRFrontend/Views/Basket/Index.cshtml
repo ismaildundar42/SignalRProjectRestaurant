@@ -24,7 +24,7 @@
             <div class="col-12">
                 <nav class="breadcrumb bg-dark mb-30">
                     <a class="breadcrumb-item text-white" href="/Default/Index/">Anasayfa</a>
-                    <a class="breadcrumb-item text-white" href="/Menu/Index/">Menü</a>
+                    <a class="breadcrumb-item text-white" href="/Menu/Index/@ViewBag.menuTableId">Menü</a>
                     <span class="breadcrumb-item active">Sepetiniz</span>
                 </nav>
             </div>
@@ -58,7 +58,7 @@
                             <td class="align-middle">@x.Count</td>
                                 <td class="align-middle">@urunToplamFiyat</td>
                                 <td class="align-middle btn-delete">
-                                    <a href="/Basket/DeleteBasket/@x.BasketId/" class="btn btn-sm btn-danger">
+                                    <a href="/Basket/DeleteBasket?id=@x.BasketId&menuTableId=@ViewBag.menuTableId" class="btn btn-sm btn-danger">
                                         <i class="fa-solid fa-xmark"></i>
                                     </a>
                                 </td>
@@ -97,8 +97,31 @@
     @await Component.InvokeAsync("_UiLayoutFooterVC")
     @await Component.InvokeAsync("_UiLayoutScriptsVC")
 
-   
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#checked').click(function() {
+                var menuTableId = @ViewBag.menuTableId;
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Order/CreateOrderFromBasket',
+                    data: { menuTableId: menuTableId },
+                    success: function(response) {
+                        swal("Başarılı!", "Sipariş başarıyla oluşturuldu!", "success")
+                        .then(function() {
+                            window.location.href = '/CustomerTable/CustomerTableList';
+                        });
+                    },
+                    error: function(xhr) {
+                        var errorMsg = xhr.responseJSON ? xhr.responseJSON.message : "Sipariş oluşturulurken hata oluştu";
+                        swal("Hata!", errorMsg, "error");
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

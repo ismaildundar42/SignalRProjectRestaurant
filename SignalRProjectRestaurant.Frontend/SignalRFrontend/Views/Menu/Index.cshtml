@@ -47,7 +47,7 @@
                                             <h6>
                                                 @x.Price ₺
                                             </h6>
-                                            <a href="#" onclick="showproductid(@x.ProductId)">
+                                            <a href="#" onclick="showproductid(@x.ProductId,@ViewBag.v)">
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                     <g>
                                                         <g>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="/Basket/Index/">
+                <a href="/Basket/Index/@ViewBag.v">
                     Sepete Git
                 </a>
             </div>
@@ -121,17 +121,17 @@
     @await Component.InvokeAsync("_UiLayoutScriptsVC")
 
     <script>
-        function showproductid(value)
-        {
-            var id = value;
+        function showproductid(productId, menuTableId) {
             $.ajax({
-                type:'post',
-                data:{item:id},
-                url:'/Menu/AddBasket/'+id,
-                contentType:'json',
-                success:function(){
-                swal("Seçilen Urün ID : "+id, "Ürün Sepete Eklendi!", "success");
-                        }
+                type: 'post',
+                url: '/Menu/AddBasket',
+                data: {
+                    id: productId,
+                    menuTableId: menuTableId
+                },
+                success: function() {
+                    swal("Seçilen Ürün ID : " + productId, "Ürün Sepete Eklendi!", "success");
+                }
             });
         }
     </script>
