@@ -574,63 +574,37 @@ setInterval(() => {
 
 ### Ana Sayfa
 
-*(Buraya ana sayfa görselini ekleyin)*
+![3](https://github.com/user-attachments/assets/a698ff7e-6027-49cd-92f7-3319e067fe28)
+
 
 ### Admin Paneli - Dashboard
 
-*(Buraya admin dashboard görselini ekleyin)*
+![2](https://github.com/user-attachments/assets/e1a72860-fce2-4ce2-94d9-959d510dcddf)
 
-### Ürün Yönetimi
-
-*(Buraya ürün yönetimi sayfası görselini ekleyin)*
-
-### Kategori Yönetimi
-
-*(Buraya kategori yönetimi sayfası görselini ekleyin)*
-
-### İstatistikler Sayfası (Gerçek Zamanlı)
-
-*(Buraya istatistikler sayfası görselini ekleyin)*
 
 ### Masa Yönetimi
 
-*(Buraya masa yönetimi sayfası görselini ekleyin)*
+![6](https://github.com/user-attachments/assets/6c2f2bfd-a21e-41ba-aefb-cf52720d8d96)
+
 
 ### Rezervasyon Yönetimi
 
-*(Buraya rezervasyon yönetimi sayfası görselini ekleyin)*
+![5](https://github.com/user-attachments/assets/b385e6ee-8214-41cc-a1a6-c7e33b028e5b)
 
-### Menü Sayfası (Müşteri)
-
-*(Buraya müşteri menü sayfası görselini ekleyin)*
-
-### Sepet Sayfası
-
-*(Buraya sepet sayfası görselini ekleyin)*
-
-### Sipariş Sayfası
-
-*(Buraya sipariş sayfası görselini ekleyin)*
-
-### Bildirimler
-
-*(Buraya bildirimler sayfası görselini ekleyin)*
-
-### QR Kod Oluşturma
-
-*(Buraya QR kod sayfası görselini ekleyin)*
-
-### E-posta Gönderme
-
-*(Buraya mail sayfası görselini ekleyin)*
 
 ### Login / Register
 
-*(Buraya login/register sayfası görselini ekleyin)*
+![1](https://github.com/user-attachments/assets/3bb0b0a6-7f93-40c6-97e7-6152e9f02bd5)
+
 
 ### API Swagger Dokumentasyonu
 
-*(Buraya Swagger sayfası görselini ekleyin)*
+![swagger](https://github.com/user-attachments/assets/8dfbc6d0-d530-46d1-b363-fa2c8bac4fad)
+
+### Error 404 Sayfası
+
+![7](https://github.com/user-attachments/assets/1e7e6a5b-2c9d-40ea-b1a8-04982844b633)
+
 
 ## 🗄️ Veritabanı Yapısı
 
