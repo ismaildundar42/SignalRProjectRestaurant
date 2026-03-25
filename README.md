@@ -1068,8 +1068,8 @@ Bu proje [MIT](LICENSE) lisansı altında lisanslanmıştır.
 ## 👨‍💻 Geliştirici
 
 **İsmail**
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-- Email: your.email@example.com
+- GitHub: [@ismaildundar42](https://github.com/ismaildundar42)
+- Email: ismail.dndr42@gmail.com
 
 ## 🙏 Teşekkürler
 
