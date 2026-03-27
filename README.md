@@ -1120,6 +1120,6 @@ Bu proje [MIT](LICENSE) lisansı altında lisanslanmıştır.
 
 **⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın! ⭐**
 
-Made with ❤️ by [İsmail](https://github.com/YOUR_USERNAME)
+Made with ❤️ by [İsmail](https://github.com/ismaildundar42)
 
 </div>
